@@ -1,0 +1,13 @@
+name: Windows-printenv
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Printenv
+      run: printenv
