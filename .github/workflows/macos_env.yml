@@ -1,0 +1,13 @@
+name: macOS env
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Check xcversion list
+      run: xcversion list
