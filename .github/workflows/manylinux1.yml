@@ -1,0 +1,20 @@
+name: manylinux1 env, compiler
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    container: quay.io/pypa/manylinux1_x86_64
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Print info on the host
+      run: |
+        echo "gcc:"
+        gcc --version || true
+        echo "g++:"
+        g++ --version || true
+        echo "all on path:"
+        for pathitem in $(echo $PATH | sed -e 's/:/ /g'); do echo $pathitem; ls -la $pathitem; echo ""; done
