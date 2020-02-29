@@ -15,5 +15,7 @@ jobs:
         gcc --version || true
         echo "g++:"
         g++ --version || true
+        echo "x86_64-CentOS-linux-gcc:"
+        x86_64-CentOS-linux-gcc --version || true
         echo "all on path:"
         for pathitem in $(echo $PATH | sed -e 's/:/ /g'); do echo $pathitem; ls -la $pathitem; echo ""; done
