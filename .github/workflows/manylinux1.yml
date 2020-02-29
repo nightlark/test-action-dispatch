@@ -9,7 +9,6 @@ jobs:
     container: quay.io/pypa/manylinux1_x86_64
 
     steps:
-    - uses: actions/checkout@v2
     - name: Print info on the host
       run: |
         echo "gcc:"
