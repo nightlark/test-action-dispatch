@@ -6,6 +6,12 @@ jobs:
   one:
     runs-on: ubuntu-16.04
     steps:
+      - name: Trigger dispatch for external repo
+        run: |
+          curl -X POST --header 'authorization: Bearer ${{ secrets.HELICS_BOT_TOKEN }}' \
+          --url https://api.github.com/repos/GMLC-TDC/helics-packaging/dispatches \
+          --header 'content-type: application/json' \
+          --data '{"event_type":"helics-version-update","client_payload":{"repository":"test_repo","tag_name":"v2.4.1","version":"2.6.0"}}'
       - name: Trigger dispatch
         run: |
           curl -X POST --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
