@@ -11,3 +11,7 @@ jobs:
     - name: Run for test-dispatch events
       if: github.event.action == 'test-dispatch'
       run: echo Hello, ${{ github.event.client_payload.test_field }}!
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
