@@ -9,5 +9,5 @@ jobs:
 
     steps:
     - name: Run for test-dispatch events
-      if: github.event.action == "test-dispatch"
+      if: github.event.action == 'test-dispatch'
       run: echo Hello, ${{ github.event.client_payload.test_field }}!
