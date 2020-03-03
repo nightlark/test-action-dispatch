@@ -7,7 +7,7 @@ jobs:
       - name: Trigger dispatch
         run: |
           curl -X POST --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
-          --url https://api.github.com/repos/GMLC-TDC/HELICS/dispatches \
+          --url https://api.github.com/repos/nightlark/HELICS/dispatches \
           --header 'content-type: application/json' \
           --data '{"event_type":"test-dispatch","client_payload":{"test_field":"my first field"}}'
       - name: Dump GitHub context
