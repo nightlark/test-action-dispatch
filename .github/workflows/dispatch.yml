@@ -1,0 +1,13 @@
+name: Dispatch Tests
+
+on:
+  repository_dispatch: ["test-dispatch", "test2-dispatch"]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Run a one-line script
+      run: echo Hello, ${{ github.event.client_payload.test_field }}!
