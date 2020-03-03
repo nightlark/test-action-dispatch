@@ -6,7 +6,10 @@ jobs:
     steps:
       - name: Trigger dispatch
         run: |
-          curl -X POST -H "authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" --url https://api.github.com/repos/nightlark/test-action-dispatch-comment/dispatches --data '{"event_type":"test-dispatch","client_payload":{"test_field":"my first field"}}'
+          curl -X POST --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --url https://api.github.com/repos/nightlark/test-action-dispatch-comment/dispatches \
+          --header 'content-type: application/json' \
+          --data '{"event_type":"test-dispatch","client_payload":{"test_field":"my first field"}}'
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
