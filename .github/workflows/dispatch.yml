@@ -1,6 +1,7 @@
 name: Dispatch Tests
 
-on: repository_dispatch
+on:
+  repository_dispatch: 'test-dispatch'
 
 jobs:
   build:
