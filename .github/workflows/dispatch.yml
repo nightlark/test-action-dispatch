@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.client_payload.ref }}
     - name: Run for test-dispatch events
       if: github.event.action == 'test-dispatch'
       run: echo Hello, ${{ github.event.client_payload.test_field }}!
@@ -16,9 +19,3 @@ jobs:
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
-
-  dispatch-os:
-    runs-on: ${{ github.event.client_payload.os }}
-    steps:
-    - name: Print os name
-      run: uname -s
