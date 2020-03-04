@@ -1,7 +1,7 @@
 name: Dispatch Tests
 
 on:
-  repository_dispatch: [test-dispatch]
+  repository_dispatch:
 
 jobs:
   build:
