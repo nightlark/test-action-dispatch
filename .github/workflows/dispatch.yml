@@ -16,11 +16,8 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
 
-  dispatch-matrix:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: ["${{github.event.client_payload.os}}"]
+  dispatch-os:
+    runs-on: ${{ github.event.client_payload.os }}
     steps:
     - name: Print os name
       run: uname -s
